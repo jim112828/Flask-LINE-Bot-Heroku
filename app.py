@@ -35,12 +35,13 @@ def callback():
 def handle_message(event):
     get_message = event.message.text
     #getUserId = event.source.userId
-    #sendText = "Beautiful Sarah, please eat pill;"
+    sendText = "Beautiful Sarah, please eat pill;"
     # Send To Line
-    aOfEvent = dir(event)
+    
     reply = TextSendMessage(text=f"Beautiful Sarah!!")
-    line_bot_api.reply_message(event.reply_token, reply)
-    line_bot_api.push_message(myUserId,TextSendMessage(text='-'.join(aOfEvent)))
+    #line_bot_api.reply_message(event.reply_token, reply)
+    for i in range(5)
+        line_bot_api.push_message(myUserId,TextSendMessage(text=sendText))
 
     
         
