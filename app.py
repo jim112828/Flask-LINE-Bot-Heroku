@@ -33,8 +33,12 @@ def callback():
 
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
-    get_message = event.message.text
-
+    #get_message = event.message.text
+    userId = event.userId
     # Send To Line
-    reply = TextSendMessage(text=f"{get_message}")
+    reply = TextSendMessage(text=f"client userid is: {userId}")
     line_bot_api.reply_message(event.reply_token, reply)
+
+    #line_bot_api.push_message()
+
+
