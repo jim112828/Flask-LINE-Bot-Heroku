@@ -35,18 +35,18 @@ def callback():
 def handle_message(event):
     get_message = event.message.text
     #room_id = event.source.room_id
-    #user_id = event.source.user_id
+    user_id = event.source.user_id
 
     
 
     sendText = "Beautiful Sarah, please eat pill;"
     # Send To Line
     #aOfEvent = dir(event)
-    #reply = TextSendMessage(text=f'{room_id},{sendText}')
-    #line_bot_api.reply_message(event.reply_token, reply)
+    reply = TextSendMessage(text=f'{user_id},{sendText}')
+    line_bot_api.reply_message(event.reply_token, reply)
     
 
-    line_bot_api.push_message(myUserId,TextSendMessage(text=get_message)
+    #line_bot_api.push_message(myUserId,TextSendMessage(text=get_message)
         
         
 
