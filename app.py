@@ -44,9 +44,9 @@ def handle_message(event):
     #aOfEvent = dir(event)
     #reply = TextSendMessage(text=f'{room_id},{sendText}')
     #line_bot_api.reply_message(event.reply_token, reply)
-    for i in range(3):
+    
 
-        line_bot_api.push_message(myUserId,TextSendMessage(text=myUserId)
+    line_bot_api.push_message(myUserId,TextSendMessage(text=user_id)
         
         
 
