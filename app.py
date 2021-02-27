@@ -34,8 +34,8 @@ def callback():
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
     get_message = event.message.text
-    room_id = event.source.room_id
-    user_id = event.source.user_id
+    #room_id = event.source.room_id
+    #user_id = event.source.user_id
 
     
 
@@ -46,7 +46,7 @@ def handle_message(event):
     #line_bot_api.reply_message(event.reply_token, reply)
     
 
-    line_bot_api.push_message(myUserId,TextSendMessage(text=user_id)
+    line_bot_api.push_message(myUserId,TextSendMessage(text=get_message)
         
         
 
