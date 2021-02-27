@@ -37,7 +37,7 @@ def handle_message(event):
     #getUserId = event.source.userId
     sendText = "Beautiful Sarah, please eat pill;"
     # Send To Line
-    reply = TextSendMessage(text=f" I love you")
+    reply = TextSendMessage(text=f"Beautiful Sarah!!")
     line_bot_api.reply_message(event.reply_token, reply)
     line_bot_api.push_message(myUserId,TextSendMessage(text=sendText))
 
