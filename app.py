@@ -37,7 +37,10 @@ def handle_message(event):
     userId = event.userId
     # Send To Line
     reply = TextSendMessage(text=f"client userid is: {userId}")
+    replyOther = TextSendMessage(text=f"This is Jimmy hsu")
     line_bot_api.reply_message(event.reply_token, reply)
+    line_bot_api.reply_message(event.reply_token, replyOther)
+
 
     #line_bot_api.push_message()
 
