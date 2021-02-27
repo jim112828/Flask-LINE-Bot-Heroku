@@ -2,7 +2,7 @@ import os
 from datetime import datetime
 import json
 from flask import Flask, abort, request
-
+import time
 # https://github.com/line/line-bot-sdk-python
 from linebot import LineBotApi, WebhookHandler
 from linebot.exceptions import InvalidSignatureError
@@ -35,18 +35,22 @@ def callback():
 def handle_message(event):
     get_message = event.message.text
     room_id = event.source.room_id
+    user_id = event.source.user_id
 
     
 
     sendText = "Beautiful Sarah, please eat pill;"
     # Send To Line
     #aOfEvent = dir(event)
-    reply = TextSendMessage(text=f'{room_id},{sendText}')
-    line_bot_api.reply_message(event.reply_token, reply)
-    #line_bot_api.push_message(myUserId,TextSendMessage(text='-'.join(aOfEvent)))
+    #reply = TextSendMessage(text=f'{room_id},{sendText}')
+    #line_bot_api.reply_message(event.reply_token, reply)
+    for i in range(3):
 
-# @handler.default()
-# def default
+        line_bot_api.push_message(myUserId,TextSendMessage(text=myUserId)
+        
+        
+
+
     
         
 
