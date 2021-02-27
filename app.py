@@ -34,10 +34,10 @@ def callback():
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
     get_message = event.message.text
-    getUserId = event.source.userId
-    getEvent = json.dumps(event)
+    #getUserId = event.source.userId
+    
     # Send To Line
-    reply = TextSendMessage(text=f" I love you {getEvent}")
+    reply = TextSendMessage(text=f" I love you {type(event)}")
     line_bot_api.reply_message(event.reply_token, reply)
 
 
