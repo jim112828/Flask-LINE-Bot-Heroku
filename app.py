@@ -10,6 +10,7 @@ from linebot.models import MessageEvent, TextMessage, TextSendMessage
 
 app = Flask(__name__)
 myUserId = "U3add647c81d6ea92dbe149e34a729409"
+sarahID = "Uba7298f7cf1920e013ce662cf96d9040"
 line_bot_api = LineBotApi(os.environ.get("CHANNEL_ACCESS_TOKEN"))
 handler = WebhookHandler(os.environ.get("CHANNEL_SECRET"))
 
@@ -39,23 +40,27 @@ def handle_message(event):
 
     
 
-    sendText = "Beautiful Sarah, please eat pill;"
+    sendText = "beautiful Sarah, please eat pills!!"
     # Send To Line
     #aOfEvent = dir(event)
-    reply = TextSendMessage(text=f'{user_id},{sendText}')
-    line_bot_api.reply_message(event.reply_token, reply)
+    #reply = TextSendMessage(text=f'{user_id},{sendText}')
+    #line_bot_api.reply_message(event.reply_token, reply)
     
-    count = 0
+    while True:
+        curTime = getCurrentTime()
 
-    while count < 5:
+        if curTime == '09:00:00' or curTime == '19:00:00':
+            try:
+                line_bot_api.push_message(sarahID, TextSendMessage(text=f'Current time is :{curTime} and {sendText}'))
+                line_bot_api.push_message(myUserId, TextSendMessage(text=f'Current time is :{curTime} and {sendText}'))
+            except LineBotApiError as e:
+                pass
+        
 
-        try:
-            line_bot_api.push_message(myUserId, TextSendMessage(text=f'people userID : {user_id}'))
-            count +=1
-        except LineBotApiError as e:
-            print(e)
-        time.sleep(5)
-    
+def getCurrentTime():
+    x = datetime.now()
+
+    return x.strftime('%H:%M:%S')
         
         
 
