@@ -33,20 +33,15 @@ def callback():
 
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
-    #get_message = event.message.text
+    get_message = event.message.text
     #getUserId = event.source.userId
-    sendText = "Beautiful Sarah, please eat pills!!!"
+    sendText = "Beautiful Sarah, please eat poll;"
     # Send To Line
-    #reply = TextSendMessage(text=f" I love you {type(event)}")
-    #line_bot_api.reply_message(event.reply_token, reply)
+    reply = TextSendMessage(text=f" I love you")
+    line_bot_api.reply_message(event.reply_token, reply)
+    line_bot_api.push_message(myUserId,TextSendMessage(text=sendText))
 
-    while True:
-        time.sleep(300)
-        try:
-            line_bot_api.push_message(myUserId,TextSendMessage(text=sendText))
-        except Exception as e:
-            print(e)
-        
+    
         
 
 
