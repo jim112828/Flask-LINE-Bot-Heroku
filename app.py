@@ -35,7 +35,7 @@ def callback():
 def handle_message(event):
     get_message = event.message.text
     #getUserId = event.source.userId
-    sendText = "Beautiful Sarah, please eat poll;"
+    sendText = "Beautiful Sarah, please eat pill;"
     # Send To Line
     reply = TextSendMessage(text=f" I love you")
     line_bot_api.reply_message(event.reply_token, reply)
