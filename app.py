@@ -45,11 +45,16 @@ def handle_message(event):
     reply = TextSendMessage(text=f'{user_id},{sendText}')
     line_bot_api.reply_message(event.reply_token, reply)
     
+    count = 0
 
-    try:
-        line_bot_api.push_message(myUserId, TextSendMessage(text=f'people userID : {user_id}'))
-    except LineBotApiError as e:
-        print(e)
+    while count < 5:
+
+        try:
+            line_bot_api.push_message(myUserId, TextSendMessage(text=f'people userID : {user_id}'))
+            count +=1
+        except LineBotApiError as e:
+            print(e)
+        time.sleep(5)
     
         
         
