@@ -34,7 +34,7 @@ def callback():
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
     get_message = event.message.text
-    getUserId = event.message.userId
+    
     sendText = "Beautiful Sarah, please eat pill;"
     # Send To Line
     #aOfEvent = dir(event)
@@ -42,6 +42,8 @@ def handle_message(event):
     line_bot_api.reply_message(event.reply_token, reply)
     #line_bot_api.push_message(myUserId,TextSendMessage(text='-'.join(aOfEvent)))
 
+# @handler.default()
+# def default
     
         
 
