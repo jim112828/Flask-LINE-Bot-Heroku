@@ -48,12 +48,12 @@ def handle_message(event):
     
     while True:
         curTime = getCurrentTime()
-
-        if curTime == '09:00:00' or curTime == '19:00:00':
-            try:
-                line_bot_api.push_message(sarahID, TextSendMessage(text=f'Current time is :{curTime} and {sendText}'))
-                line_bot_api.push_message(myUserId, TextSendMessage(text=f'Current time is :{curTime} and {sendText}'))
-            except LineBotApiError as e:
+        try:
+            if curTime == '09:00:00' or curTime == '19:00:00':
+            
+                line_bot_api.multicast([sarahID,myUserId], TextSendMessage(text=f'Current time is :{curTime} and {sendText}'))
+        
+        except LineBotApiError as e:
                 pass
         
 
