@@ -46,15 +46,15 @@ def handle_message(event):
     #reply = TextSendMessage(text=f'{user_id},{sendText}')
     #line_bot_api.reply_message(event.reply_token, reply)
     
-    while True:
-        curTime = getCurrentTime()
-        try: 
-            if curTime == '09:00:00' or curTime == '19:00:00':
+    
+    curTime = getCurrentTime()
+    try: 
             
-                line_bot_api.multicast([sarahID,myUserId], TextSendMessage(text=f'Current time is :{curTime} and {sendText}'))
+            
+        line_bot_api.multicast([sarahID,myUserId], TextSendMessage(text=f'Current time is :{curTime} and {sendText}'))
         
-        except LineBotApiError as e:
-                pass
+    except LineBotApiError as e:
+            pass
         
 
 def getCurrentTime():
