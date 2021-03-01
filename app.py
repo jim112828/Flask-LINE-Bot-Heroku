@@ -48,7 +48,7 @@ def handle_message(event):
     
     while True:
         curTime = getCurrentTime()
-        try:
+        try: 
             if curTime == '09:00:00' or curTime == '19:00:00':
             
                 line_bot_api.multicast([sarahID,myUserId], TextSendMessage(text=f'Current time is :{curTime} and {sendText}'))
