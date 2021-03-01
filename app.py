@@ -50,8 +50,9 @@ def handle_message(event):
     curTime = getCurrentTime()
     try: 
             
-            
-        line_bot_api.multicast([sarahID,myUserId], TextSendMessage(text=f'Current time is :{curTime} and {sendText}'))
+        if datetime.now().hour == '9' or datetime.now().hour == '19':
+
+            line_bot_api.multicast([sarahID,myUserId], TextSendMessage(text=f'Current time is :{curTime} and {sendText}'))
         
     except LineBotApiError as e:
             pass
