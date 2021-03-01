@@ -19,7 +19,7 @@ message = f'Current time is :{curTime} and {sendText}'
 def scheduled_job_nine():
     lineNotifyMessage(token,message)
     
-@sched.scheduled_job('cron', day='1-31', hour='7')
+@sched.scheduled_job('cron', day='1-31', hour='19')
 def scheduled_job_six():
     lineNotifyMessage(token,message)
 
