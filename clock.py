@@ -2,17 +2,18 @@ from apscheduler.schedulers.blocking import BlockingScheduler
 import requests
 from datetime import datetime
 
-sched = BlockingScheduler()
+def getCurrentTime():
+    x = datetime.now()
 
+    return x.strftime('%H:%M:%S')
+
+sched = BlockingScheduler()
 token = 'knnjvKtQP3ZTScEdCYtFGTNKDuliEiaeiDw7vbriSjE'
 curTime = getCurrentTime()
 sendText = "beautiful Sarah, please eat pills!!"
 message = f'Current time is :{curTime} and {sendText}'
 
-def getCurrentTime():
-    x = datetime.now()
 
-    return x.strftime('%H:%M:%S')
 
 @sched.scheduled_job('cron', day='1-31', hour='9')
 def scheduled_job_nine():
