@@ -9,18 +9,22 @@ def getCurrentTime():
 
 sched = BlockingScheduler()
 token = 'knnjvKtQP3ZTScEdCYtFGTNKDuliEiaeiDw7vbriSjE'
-curTime = getCurrentTime()
-sendText = "beautiful Sarah, please eat pills!!"
-message = f'Current time is :{curTime} and {sendText}'
+
 
 
 
 @sched.scheduled_job('cron', day='1-31', hour='9')
 def scheduled_job_nine():
+    curTime = getCurrentTime()
+    sendText = "beautiful Sarah, please eat pills!!"
+    message = f'Current time is :{curTime} and {sendText}'
     lineNotifyMessage(token,message)
     
 @sched.scheduled_job('cron', day='1-31', hour='19')
 def scheduled_job_six():
+    curTime = getCurrentTime()
+    sendText = "beautiful Sarah, please eat pills!!"
+    message = f'Current time is :{curTime} and {sendText}'
     lineNotifyMessage(token,message)
 
 def lineNotifyMessage(token, msg):
