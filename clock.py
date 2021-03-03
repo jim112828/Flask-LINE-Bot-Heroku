@@ -3,9 +3,9 @@ import requests
 from datetime import datetime
 
 def getCurrentTime():
-    x = datetime.now()
-
-    return x.strftime('%H:%M:%S')
+    now = datetime.now()
+    ThaiTime = now - datetime.timedelta(hours = 1)
+    return ThaiTime.strftime('%H:%M:%S')
 
 sched = BlockingScheduler()
 token = 'knnjvKtQP3ZTScEdCYtFGTNKDuliEiaeiDw7vbriSjE'
@@ -15,16 +15,16 @@ token = 'knnjvKtQP3ZTScEdCYtFGTNKDuliEiaeiDw7vbriSjE'
 
 @sched.scheduled_job('cron', day='1-31', hour='9')
 def scheduled_job_nine():
-    curTime = getCurrentTime()
+    ThaiNow = getCurrentTime()
     sendText = "beautiful Sarah, please eat pills!!"
-    message = f'Current time is :{curTime} and {sendText}'
+    message = f'Current time is :{ThaiNow} and {sendText}'
     lineNotifyMessage(token,message)
     
 @sched.scheduled_job('cron', day='1-31', hour='19')
 def scheduled_job_six():
-    curTime = getCurrentTime()
+    ThaiNow = getCurrentTime()
     sendText = "beautiful Sarah, please eat pills!!"
-    message = f'Current time is :{curTime} and {sendText}'
+    message = f'Current time is :{ThaiNow} and {sendText}'
     lineNotifyMessage(token,message)
 
 def lineNotifyMessage(token, msg):
