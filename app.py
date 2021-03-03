@@ -37,7 +37,7 @@ def handle_message(event):
     get_message = event.message.text
     #room_id = event.source.room_id
     user_id = event.source.user_id
-
+    print(str(event))
     
 
     sendText = "beautiful Sarah, please eat pills!!"
@@ -48,9 +48,10 @@ def handle_message(event):
     
     
     curTime = getCurrentTime()
+
     
             
-    if datetime.now().hour == '9' or datetime.now().hour == '19':
+    if datetime.now().hour == 9 or datetime.now().hour == 19:
 
         line_bot_api.multicast([myUserId,sarahID],TextSendMessage(text=f'Current time is :{curTime} and {sendText}'))
         
@@ -58,9 +59,9 @@ def handle_message(event):
         
 
 def getCurrentTime():
-    x = datetime.now()
-
-    return x.strftime('%H:%M:%S')
+    now = datetime.now()
+    ThaiTime = now - datetime.timedelta(hours = 1)
+    return ThaiTime.strftime('%H:%M:%S')
         
         
 
