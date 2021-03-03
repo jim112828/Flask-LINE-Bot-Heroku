@@ -1,10 +1,10 @@
 from apscheduler.schedulers.blocking import BlockingScheduler
 import requests
-from datetime import datetime
+from datetime import datetime, timedelta
 
 def getCurrentTime():
     now = datetime.now()
-    ThaiTime = now - datetime.timedelta(hours = 1)
+    ThaiTime = now - timedelta(hours = 1)
     return ThaiTime.strftime('%H:%M:%S')
 
 sched = BlockingScheduler()

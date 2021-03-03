@@ -1,5 +1,5 @@
 import os
-from datetime import datetime
+from datetime import datetime, timedelta
 import json
 from flask import Flask, abort, request
 import time
@@ -60,7 +60,7 @@ def handle_message(event):
 
 def getCurrentTime():
     now = datetime.now()
-    ThaiTime = now - datetime.timedelta(hours = 1)
+    ThaiTime = now - timedelta(hours = 1)
     return ThaiTime.strftime('%H:%M:%S')
         
         
