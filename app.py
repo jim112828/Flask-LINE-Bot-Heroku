@@ -55,7 +55,8 @@ def handle_message(event):
 
         line_bot_api.multicast([myUserId,sarahID],TextSendMessage(text=f'Current time is :{curTime} and {sendText}'))
     else:
-        line_bot_api.broadcast(TextSendMessage(text=str(event)))
+        #line_bot_api.broadcast(TextSendMessage(text=str(event)))
+        pass
         
     
         
